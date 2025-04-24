@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snowboard List</title>
+</head>
+<body>
+    <h1>Available Snowboards</h1>
+    {% for snowboard in snowboards %}
+        <div>
+            <h2>{{ snowboard.name }}</h2>
+            <p>{{ snowboard.description }}</p>
+            <p>Price: ${{ snowboard.rental_price }}</p>
+            <p>Available: {{ snowboard.quantity_available }}</p>
+            {% if snowboard.image %}
+                <img src="{{ snowboard.image.url }}" alt="{{ snowboard.name }}" width="200">
+            {% endif %}
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>
