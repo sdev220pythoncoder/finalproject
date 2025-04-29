@@ -6,3 +6,5 @@ urlpatterns = [
     path('snowboards/', views.snowboard_list, name='snowboard_list'),
 ]
 
+
+

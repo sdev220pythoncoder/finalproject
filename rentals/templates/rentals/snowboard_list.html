@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Snowboard List</title>
-</head>
-<body>
-    <h1>Available Snowboards</h1>
+
+{% extends 'rentals/base.html' %}
+
+{% block title %}Available Snowboards{% endblock %}
+
+{% block content %}
+    <h2>Available Snowboards</h2>
     {% for snowboard in snowboards %}
         <div>
-            <h2>{{ snowboard.name }}</h2>
+            <h3>{{ snowboard.name }}</h3>
             <p>{{ snowboard.description }}</p>
             <p>Price: ${{ snowboard.rental_price }}</p>
             <p>Available: {{ snowboard.quantity_available }}</p>
@@ -17,5 +17,5 @@
         </div>
         <hr>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
+

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Snowboard Rental Shop{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'rentals/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Snowboard Rental Shop</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a> |
+            <a href="{% url 'snowboard_list' %}">Available Snowboards</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; ...Brought to you by SDEV220 Team 2</p>
+    </footer>
+</body>
+</html>

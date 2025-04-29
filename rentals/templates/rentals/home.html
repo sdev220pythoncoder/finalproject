@@ -1,0 +1,28 @@
+
+
+{% extends 'rentals/base.html' %}
+
+{% block title %}Home - Snowboard Rental Shop{% endblock %}
+
+{% block content %}
+<div class="hero-section" style="background: url('/static/rentals/banner.jpg') no-repeat center center; background-size: cover; padding: 3rem; color: white; text-align: center;">
+    <h1>🏂 Best Boards in Town 🏔️</h1>
+    <p style="font-size: 1.2rem;"> Rent From Us Today!</p>
+    <a href="{% url 'snowboard_list' %}" class="cta-button">Browse Snowboards</a>
+</div>
+
+<div class="features" style="display: flex; justify-content: space-around; margin-top: 2rem;">
+    <div class="feature-card" style="text-align: center;">
+        <h3>🔥 Top Brands</h3>
+        <p>Burton, Lib Tech, GNU, Ride</p>
+    </div>
+    <div class="feature-card" style="text-align: center;">
+        <h3>🎯 Exact Right Fits</h3>
+        <p>Choose From a Variety of Sizes</p>
+    </div>
+    <div class="feature-card" style="text-align: center;">
+        <h3>✅ Fast Pickup</h3>
+        <p>Reserve online, pick up immediately.</p>
+    </div>
+</div>
+{% endblock %}
