@@ -4,8 +4,9 @@ from .models import Snowboard
 # Create your views here.
 from django.http import HttpResponse
 
+
 def home(request):
-    return HttpResponse("Welcome to the Snowboard Rental Shop!")
+    return render(request, 'rentals/home.html')
 
 def snowboard_list(request):
     snowboards = Snowboard.objects.all()

@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Snowboard Shop{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'snowboard_shop/style.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Snowboard Shop!</h1>
+</header>
+
+<div class="container">
+    {% block content %}
+    
+    {% endblock %}
+</div>
+
+</body>
+</html>
