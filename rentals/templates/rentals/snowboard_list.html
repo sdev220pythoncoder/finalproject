@@ -5,8 +5,9 @@
 
 {% block content %}
     <h2>Available Snowboards</h2>
-    {% for snowboard in snowboards %}
-        <div>
+    <div class="snowboard-grid" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      {% for snowboard in snowboards %}
+        <div class="snowboard-card" style="border: 1px solid #ccc; padding: 1rem; width: 250px;">
             <h3>{{ snowboard.name }}</h3>
             <p>{{ snowboard.description }}</p>
             <p>Price: ${{ snowboard.rental_price }}</p>
@@ -14,8 +15,28 @@
             {% if snowboard.image %}
                 <img src="{{ snowboard.image.url }}" alt="{{ snowboard.name }}" width="200">
             {% endif %}
+            {% if snowboard.quantity_available > 0 %}
+                <a href="{% url 'rent_snowboard' snowboard.id %}" class="cta-button" style="display: inline-block; margin-top: .5rem;">Rent</a>
+            {% else %}
+                <button disabled style="opacity: .6; cursor: not-allowed; margin-top: .5rem;">Out of stock</button>
+            {% endif %}
         </div>
-        <hr>
-    {% endfor %}
-{% endblock %}
+      {% empty %}
+        <p>No snowboards available at the moment.</p>
+      {% endfor %}
+    </div>
+    <hr>
 
+    <h2>My Active Rentals</h2>
+    <ul>
+        {% for rental in rentals %}
+            <li>
+                {{ rental.snowboard.name }} &mdash; rented on {{ rental.rental_date|date:"M j, Y" }}
+                <a href="{% url 'return_snowboard' rental.id %}">Return</a>
+            </li>
+        {% empty %}
+            <li>No active rentals.</li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
