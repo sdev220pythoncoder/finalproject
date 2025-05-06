@@ -30,7 +30,6 @@ def renter_required(view):
         return view(request, *args, **kwargs)
     return wrapped
 
-@login_required
 @renter_required
 def rent_snowboard(request, snowboard_id):
     snowboard = get_object_or_404(Snowboard, pk=snowboard_id)
