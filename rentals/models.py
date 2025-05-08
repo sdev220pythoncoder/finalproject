@@ -16,7 +16,6 @@ class Snowboard(models.Model):
 
 class Renter(models.Model):
     username = models.CharField(max_length=100)
-
     def __str__(self):
         return self.username
 
@@ -27,6 +26,7 @@ class Renter(models.Model):
             snowboard.save()
             return True
         return False
+    
 
     def return_board(self, rental):
         if rental.renter == self and rental.return_date is None:

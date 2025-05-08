@@ -12,6 +12,8 @@ def home(request):
     snowboards = Snowboard.objects.all()
     rentals = Rental.objects.filter(return_date__isnull = True)
     renters = None
+    renters_list = list(Renter.objects.filter(rental__isnull=False).distinct())
+    num_customers = str(len(renters_list))
     if request.session.get('renter_id'):
         try:
             renter = Renter.objects.get(id=request.session['renter_id'])
@@ -20,7 +22,8 @@ def home(request):
     return render(request, 'rentals/home.html', {
         'renter': renters,
         'snowboards': snowboards,
-        'rentals': rentals
+        'rentals': rentals,
+        'num_customers': num_customers
     })
 
 def renter_required(view):
